@@ -1,0 +1,51 @@
+:root {
+  --bg: #0a0d18; --panel: #10152a; --card: #161d38;
+  --accent: #6fb4ff; --accent2: #9c7dff;
+  --text: #eef2fb; --sub: #93a0c4; --ok: #55d18d; --err: #ff6b7a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; }
+h1 { font-size: 26px; margin: 10px 0 4px; }
+.lead { color: var(--sub); font-size: 14px; margin: 0 0 24px; }
+.panel { background: var(--panel); border: 1px solid #222c50; border-radius: 12px; padding: 20px; margin-bottom: 18px; }
+label.field { display: block; font-size: 13px; color: var(--sub); margin: 0 0 6px; }
+select {
+  width: 100%; background: #0d1226; color: var(--text); border: 1px solid #222c50;
+  border-radius: 8px; padding: 9px 10px; font: inherit; margin-bottom: 14px;
+}
+.drop {
+  border: 1.5px dashed #324070; border-radius: 10px; padding: 24px; text-align: center;
+  cursor: pointer; margin-bottom: 14px;
+}
+.drop:hover { border-color: var(--accent); }
+.drop p { margin: 2px 0; color: var(--sub); font-size: 13px; }
+.drop input[type=file] { display: none; }
+textarea {
+  width: 100%; min-height: 130px; background: #0d1226; color: var(--text);
+  border: 1px solid #222c50; border-radius: 8px; padding: 10px;
+  font: 13px/1.5 ui-monospace, Consolas, monospace; resize: vertical;
+}
+.row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+button.primary {
+  background: linear-gradient(100deg, var(--accent), var(--accent2)); color: #0a0d18;
+  border: 0; border-radius: 8px; padding: 10px 20px; font: inherit; font-weight: 600; cursor: pointer;
+}
+button.primary:disabled { opacity: .5; cursor: not-allowed; }
+button.secondary {
+  background: var(--card); color: var(--text); border: 1px solid #27315c;
+  border-radius: 8px; padding: 10px 16px; font: inherit; cursor: pointer;
+}
+.status { margin-top: 12px; font-size: 13px; color: var(--sub); min-height: 18px; white-space: pre-wrap; }
+.status.err { color: var(--err); }
+.status.ok { color: var(--ok); }
+pre#output {
+  max-height: 320px; overflow: auto; background: #0d1226; border: 1px solid #222c50;
+  border-radius: 8px; padding: 12px; font: 12.5px/1.5 ui-monospace, Consolas, monospace;
+  white-space: pre-wrap; word-break: break-word;
+}
+.note { color: var(--sub); font-size: 12.5px; }
+.note code { background: var(--card); padding: 1px 5px; border-radius: 4px; }

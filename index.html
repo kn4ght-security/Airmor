@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catph — local obfuscator UI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Catph</h1>
+  <p class="lead">A browser front end for your local <code>cli.lua</code>. This page sends code to a small server running on your own machine, which runs the real tool and sends the result back. Nothing leaves your computer.</p>
+
+  <div class="panel">
+    <label class="field" for="preset">Preset</label>
+    <select id="preset">
+      <option value="customvm">customvm (default)</option>
+      <option value="customvm-small">customvm-small</option>
+      <option value="customvm-large">customvm-large</option>
+      <option value="customvm-allstricks">customvm-allstricks</option>
+      <option value="customvm-test">customvm-test</option>
+      <option value="luaubc">luaubc</option>
+      <option value="ironbrew2">ironbrew2</option>
+      <option value="catph">catph</option>
+    </select>
+
+    <label class="field" for="luaVersion">Target</label>
+    <select id="luaVersion">
+      <option value="LuaU" selected>LuaU (Roblox)</option>
+      <option value="Lua51">Lua 5.1</option>
+    </select>
+
+    <label class="drop" id="drop" tabindex="0">
+      <input type="file" id="file" accept=".lua,.txt,text/plain" />
+      <p>Drop a .lua file here, or click to browse</p>
+    </label>
+    <div id="fileInfo" class="note" style="display:none;"></div>
+
+    <label class="field" for="code">...or paste code</label>
+    <textarea id="code" placeholder='print("Hello, Luau!")'></textarea>
+
+    <div class="row">
+      <button class="primary" id="run">Obfuscate</button>
+      <button class="secondary" id="clear" type="button">Clear</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="panel" id="outputPanel" style="display:none;">
+    <div class="row" style="margin-top:0;">
+      <button class="secondary" id="copy">Copy output</button>
+      <button class="secondary" id="download">Download .lua</button>
+    </div>
+    <pre id="output"></pre>
+  </div>
+
+  <p class="note">This talks to <code>server.js</code> on <code>localhost:8787</code>. See README.md for setup.</p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
